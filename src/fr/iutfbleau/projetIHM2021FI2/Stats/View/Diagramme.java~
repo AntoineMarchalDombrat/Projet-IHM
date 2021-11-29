@@ -1,0 +1,31 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class Diagramme extends JComponent {
+    @Override
+    protected void paintComponent(Graphics pinceau) {
+        
+        // int[] xpoint = new int[] {0, 50, 0, 50};
+        // int[] ypoint = new int[] {0, 0, 50, 50};
+        // obligatoire : on crée un nouveau pinceau pour pouvoir le modifier plus tard
+        Graphics secondPinceau = pinceau.create();
+
+        if (this.isOpaque()) {
+              // obligatoire : on repeint toute la surface avec la couleur de fond
+              secondPinceau.setColor(this.getBackground());
+              secondPinceau.fillRect(0, 0, this.getWidth(), this.getHeight());
+            }
+
+    secondPinceau.setColor(new Color(0,127,127));
+    // secondPinceau.fillPolygon(xpoint,ypoint,4);
+
+    secondPinceau.fillPolygon(new int[] {0,this.getWidth(),this.getWidth()/2} , new int[] {0,0,this.getHeight()/2},3);
+    secondPinceau.fillPolygon(new int[] {0,this.getWidth(),this.getWidth()/2} , new int[] {this.getHeight(),this.getHeight(),this.getHeight()/2},3);
+
+   
+       
+
+
+}
+    
+}
